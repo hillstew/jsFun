@@ -12,62 +12,68 @@ const scope = {
 
       function beautifyPerson() {
         // Log A: personB
-        
         if (personB.includes('B')) {
-          personB = person;
-          personC = personB;
+          personB = person; //personB becomes 'CardiB'
+          personC = personB; //personC becomes 'CardiB'
           // Log B: personC
         }
       }
-
-      personC = personA;
-
+      personC = personA; //personC becomes 'Paul'
       // Log C: personB
     }
-
     changePerson();
-
     // Log D: personC
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [
+      {'A': 'Ben'},
+      {'B': 'CardiB'},
+      {'C': 'CardiB'},
+      {'D': 'Paul'},
+    ];
     return result;
 
-    // Annotation:
-    // Write your annotation here as a comment
+    // Annotation: On lines 3-5, three variables are declared and then on line 7, changePerson is declared and 
+    // and the interpertor moves down to line 24 to invoke the changePerson function. Moving back up to line
+    // 7, the conditional evalates to true and reassigns person to Cardi B but since we have not declared 
+    // person as a variable in any scope, the interpertor creates a varible named person in the global scope. 
+    // On line 10, beauitfyPerson is invoked. Log A would be Ben. Within beautifyPerson, the condtional evalutes to true
+    // and both person b and c are reassigned to CardiB. Log B is Cardi B. Next, person C is reassigned to Paul. Log D
+    // is Paul.
+    // 
   },
 
   exerciseB() {
     let number = 30;
-
     function numberFunction() {
       let number = 75;
-
       if (number === 75) {
         let number = 28;
       }
-
-      // Log A: number
-
+      // Log A: 75
       function newNumber() {
         number = 64;
-
-        // Log B: number
+        // Log B: 64
       }
-
       newNumber();
-
-      // Log C: number
+      // Log C: 64
     }
-
     numberFunction();
-
-    // Log D: number
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    // Log D: 30 
+    const result = [
+      {A: 75},
+      {B: 64},
+      {C: 64},
+      {D: 30},
+    ];
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Declare a variable on line 46, declare a function, then on line 60 number function is invoked.
+    // The interpertor moves back up to line 47, within the functional, a variable is declared. Conditional
+    // runs true, and withing the local scope, a variable is declared. Log A is 75. Next, new number function is
+    // declared and on line 57 it is invoked. contional evalutes to true, and number is reassigned and by way of 
+    // the scope chain, reassigns the variable decalred on line 48. Log C is 64. Log D is 30 because it was
+    // declared on line 46 as a global variable. 
   },
 
   exerciseC() {
@@ -79,29 +85,29 @@ const scope = {
       if (greeting === 'Yo') {
         let greeting = 'Howdy';
       }
-
-      // Log A: greeting
-
+      // Log A: 'Yo'
       function newPhrase() {
         greeting = 'Hey';
-
-        // Log B: greeting
+        // Log B: 'Hey'
       }
-
       newPhrase();
-
-      // Log C: greeting
+      // Log C: 'Hey'
     }
-
     greetingFunction();
+    // Log D: 'Hello'
 
-    // Log D: greeting
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [
+      {A: 'Yo'},
+      {B: 'Hey'},
+      {C: 'Hey'},
+      {D: 'Hello'},
+    ];
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // A variable greeting is declared on line 80 in the global scope. Next, greetingFunction is decalred. 
+    // Then, the int. moves to line 96 where greetingFunction is invoked. Next, wihtin the greeting function,
+    // a varible
   },
 
   exerciseD() {
@@ -114,24 +120,29 @@ const scope = {
         let greeting = 'hello';
       }
 
-      // Log A: greeting
+      // Log A: 'hi'
 
       const newGreeting = ()  => {
         greeting = 'welcome';
 
-        // Log B: greeting
+        // Log B: 'welcome'
       };
 
       newGreeting();
 
-      // Log C: greeting
+      // Log C: 'welcome'
     };
 
     greetingGenerator();
 
-    // Log D: greeting
+    // Log D: 'howdy'
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [
+      {A: 'hi'},
+      {B: 'welcome'},
+      {C: 'welcome'},
+      {D: 'howdy'}
+    ];
     return result;
 
     // Annotation:
