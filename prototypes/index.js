@@ -20,44 +20,33 @@ const { weapons, characters } = require('./datasets/ultima');
 // DATASET: kitties from ./datasets/kitties
 const kittyPrompts = {
   orangeKittyNames() {
-    // Return an array of just the names of kitties who are orange e.g.
-    // ['Tiger', 'Snickers']
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.filter(kitty => kitty.color === 'orange')
+                          .map(cat => cat.name);
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
   },
-
   sortByAge() {
     // Sort the kitties by their age
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort(function (a, b) {
+        return b.age - a.age;
+    });
     return result;
-
     // Annotation:
     // Write your annotation here as a comment
   },
 
   growUp() {
-    // Return an array of kitties who have all grown up by 2 years e.g.
-    // [{
-    //   name: 'Felicia',
-    //   age: 4,
-    //   color: 'grey'
-    // },
-    // {
-    //   name: 'Tiger',
-    //   age: 7,
-    //   color: 'orange'
-    // },
-    // ...etc]
+    const result = kitties.map((kitty) => {
+      kitty.age += 2;
+      return kitty;
+      });
+      return result;
+    }
+  };
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
-  }
-};
+
 
 
 
@@ -69,6 +58,8 @@ const kittyPrompts = {
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
+
+
 
 
 
@@ -86,7 +77,16 @@ const clubPrompts = {
     //   ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = clubs.reduce((obj, club) => {
+      club.members.forEach(function (member) {
+        if (!obj[member]) {
+          obj[member] = [club.club]
+        } else {
+          obj[member].push(club.club)
+        }
+      });
+      return obj;
+    }, {});
     return result;
 
     // Annotation:
