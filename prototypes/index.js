@@ -20,7 +20,10 @@ const { weapons, characters } = require('./datasets/ultima');
 // DATASET: kitties from ./datasets/kitties
 const kittyPrompts = {
   orangeKittyNames() {
+
     const result = kitties.filter(kitty => kitty.color === 'orange').map(cat => cat.name);
+
+
     return result;
     // Annotation:
     // Write your annotation here as a comment
@@ -28,7 +31,9 @@ const kittyPrompts = {
   sortByAge() {
     // Sort the kitties by their age
     const result = kitties.sort(function (a, b) {
+
       return b.age - a.age;
+
     });
     return result;
     // Annotation:
@@ -56,6 +61,8 @@ const kittyPrompts = {
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
+
+
 
 
 
@@ -263,7 +270,7 @@ const classPrompts = {
     // ]
 
     const result = classrooms.filter((room) => {
-      return room.program === 'FE'
+      return room.program === 'FE';
     });
     return result;
 
