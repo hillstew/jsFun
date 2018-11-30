@@ -203,7 +203,7 @@ const context = {
     });
 
     // What is the value of `this` when a user clicks on our #btn element and the callback is triggered?
-    const result = 'el';
+    const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
 
     // Annotation: 
@@ -217,7 +217,7 @@ const context = {
     });
 
     // What is the value of `this` when a user clicks on our #btn element and the callback is triggered?
-    const result = 'el';
+    const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
 
     // Annotation: 

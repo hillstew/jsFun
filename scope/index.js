@@ -153,7 +153,7 @@ const scope = {
     let name = 'Brittany';
 
     function sayName() {
-      let name = 'Pam';
+      let name = 'Pam'; //reassigned to Nathaniel 
 
       if (name === 'Pam') {
         name = 'Nathaniel';
@@ -162,20 +162,25 @@ const scope = {
           let name = 'Brittany';
         }
 
-        // Log A: name
+        // Log A: 'Nathaniel' - 2nd
       }
 
-      // Log B: name
+      // Log B: 'Nathaniel' - 3rd
     }
 
-    // Log C: name
+    // Log C: 'Brittany' - 1st
 
     sayName();
 
-    // Log D: name
+    // Log D: 'Brittany'
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    const result = [
+      {C: 'Brittany'},
+      {A: 'Nathaniel'},
+      {B: 'Nathaniel'},
+      {D: 'Brittany'}
+    ];
+    return result; 
 
     // Annotation:
     // Write your annotation here as a comment
@@ -326,38 +331,45 @@ const scope = {
   exerciseJ() {
     let sandwich = 'ketchup sandwich';
 
-    // Log A: sandwich
+    // Log A: sandwich 'ketchup sandwich' 1
 
     const addChipotle = () => {
-      // Log B: toppings
+      // Log B: toppings reference error - 3
       var toppings = 'chipotle sauce';
 
       if (toppings === 'chipotle sauce') { 
-        sandwich = 'not a mediocre sandwich';
+        sandwich = 'not a mediocre sandwich'; // global
       }
 
-      // Log C: sandwich
+      // Log C: sandwich 'not a mediocre sandwich' - 4
     };
 
     const addCheese = () => {
       let cheeseTopping = 'gouda';
-      // Log D: cheeseTopping
+      // Log D: cheeseTopping 'gouda' - 2
 
       const shesTheManReference = () => {
-        amandaBynes = 'National Treasure';
+        amandaBynes = 'National Treasure'; // global
       };
 
       shesTheManReference();
     };
 
-    cheeseTopping = 'kraft';
+    cheeseTopping = 'kraft'; // global
     addCheese();
 
     addChipotle();
-    // Log E: sandwich
-    // Log F: amandaBynes
+    // Log E: 'not a mediocre sandwich' - 5
+    // Log F: amandaBynes 'National Treasure' - 6
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [
+      {'A': 'ketchup sandwich'},
+      {'D': 'gouda'},
+      {'B': undefined},
+      {'C': 'not a mediocre sandwich'},
+      {'E': 'not a mediocre sandwich'},
+      {'F': 'National Treasure'},
+    ];    
     return result;
 
     // Annotation:
@@ -532,13 +544,13 @@ const scope = {
     let wildKids = ['Antigone'];
 
     let myCrazyKidAntics = kid => {
-      // Log A: kid
+      // Log A: 'Pandora' - 1st
       wildKids.push(kid);
-      // Log B: wildKids
+      // Log B: ['Antigone', 'Pandora'] - 2nd
   
       let drawOnTheWall = () => {
         let myKid = 'Mandy';
-        // Log C: myKid
+        // Log C: 'Mandy' - 3rd
         return `That wild kid ${myKid}, drew on the wall!`;
       };
 
@@ -546,18 +558,24 @@ const scope = {
 
       let myAmazingKid = () => {
         let myKid = wildKids.shift();
-        // Log D: myKid
+        // Log D: 'Antigone' - 4th
         return `That kid ${myKid}, is AMAZING!`;
       };
 
       myAmazingKid();
-      // Log E: myKid;
+      // Log E: 'Pandora';
       return `All these kids are wild, especially, ${myKid}!`;
     };
 
     myCrazyKidAntics(myKid);
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [
+      {A: 'Pandora'},
+      {B: ['Antigone', 'Pandora']},
+      {C: 'Mandy'},
+      {D: 'Antigone'},
+      {E: 'Pandora'}
+    ];
     return result;
 
     // Annotation:
