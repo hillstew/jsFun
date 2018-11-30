@@ -247,12 +247,12 @@ const scope = {
   },
 
   exerciseH() {
-    let num = 6;
+    let num = 6; // 10
 
     const fn1 = function() {
       let num = 4;
 
-      // Log A: num
+      // Log A: 4 - 1
 
       if (num < 5) {
         const num = 9;
@@ -261,25 +261,31 @@ const scope = {
 
         const newNum = num;
 
-        // Log B: newNum
+        // Log B: 9 - 4
       }
 
       newNum = num;
 
-      // Log C: newNum
+      // Log C: 9 - 5
     };
 
     const fn2 = function(num){
-      // Log D: num
+      // Log D: 9 - 2
 
       num = num + 1;
 
-      // Log E: num
+      // Log E: 10 - 3
     };
 
     fn1();
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [
+      {A: 4},
+      {D: 9},
+      {E: 10},
+      {B: 9},
+      {C: 10}
+    ];
     return result;
 
     // Annotation:
